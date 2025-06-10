@@ -1,0 +1,2 @@
+}
+getLength("Hello World");
