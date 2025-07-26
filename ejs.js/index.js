@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const port = 8080;
 const instaData = require("./data.json");
+app.use(express.static("public"));
 
 app.set("view engine", "ejs"); // view engine is templete of the website
 
