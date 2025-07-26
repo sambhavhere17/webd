@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 
+let port = 8080;
 const Chat = require("./chat.js");
 
 app.set("views", path.join(__dirname, "views"));
@@ -41,10 +42,10 @@ app.get("/", (req, res) => {
   res.send("root is working");
 });
 
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log("Server is listening on port 8080");
 });
 
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log("Server is listening on port 8080");
 });
