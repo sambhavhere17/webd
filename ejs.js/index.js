@@ -3,7 +3,8 @@ const app = express();
 const path = require("path");
 const port = 8080;
 const instaData = require("./data.json");
-app.use(express.static("public"));
+
+app.use(express.static(path.join(__dirname, "public"))); // for css (better to use "public" folder)
 
 app.set("view engine", "ejs"); // view engine is templete of the website
 
@@ -32,8 +33,13 @@ app.get("/ig/:username", (req, res) => {
   console.log(instaData);
   let data = instaData[username];
 
-  res.render("insta.ejs", { data });
   console.log(data);
+
+  if (data) {
+    res.render("insta.ejs", { data });
+  } else {
+    res.render("error.ejs");
+  }
 });
 
 app.listen(port, () => {
